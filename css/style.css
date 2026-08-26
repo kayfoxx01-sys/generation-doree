@@ -3,9 +3,13 @@
 ========================================== */
 
 .shop-section {
+
     position: relative;
+
     min-height: 100vh;
+
     padding: 130px 5% 100px;
+
     background:
         radial-gradient(
             circle at 50% 0%,
@@ -13,85 +17,133 @@
             transparent 45%
         ),
         #080808;
+
     overflow: hidden;
 }
+
 
 /* Lumière d'ambiance */
 
 .shop-section::before {
+
     content: "";
+
     position: absolute;
+
     width: 700px;
     height: 700px;
+
     top: -350px;
     left: 50%;
+
     transform: translateX(-50%);
+
     background: rgba(255, 255, 255, 0.035);
+
     filter: blur(120px);
+
     border-radius: 50%;
+
     pointer-events: none;
 }
 
+
 .shop-container {
+
     position: relative;
+
     z-index: 2;
+
     max-width: 1400px;
+
     margin: auto;
 }
+
 
 /* ==========================================
    HEADER BOUTIQUE
 ========================================== */
 
 .shop-header {
+
     text-align: center;
+
     margin-bottom: 70px;
 }
 
+
 .shop-label {
+
     display: inline-block;
+
     margin-bottom: 18px;
+
     font-size: 11px;
+
     font-weight: 700;
+
     letter-spacing: 5px;
+
     color: rgba(255, 255, 255, 0.45);
+
     text-transform: uppercase;
 }
 
+
 .shop-header h1 {
+
     font-size: clamp(45px, 7vw, 85px);
+
     line-height: 0.95;
+
     letter-spacing: -4px;
+
     font-weight: 800;
+
     margin-bottom: 20px;
 }
 
+
 .shop-header p {
+
     max-width: 620px;
+
     margin: auto;
+
     color: rgba(255, 255, 255, 0.48);
+
     font-size: 14px;
+
     line-height: 1.8;
 }
+
 
 /* ==========================================
    GRILLE PRODUITS
 ========================================== */
 
 .products-grid {
+
     display: grid;
+
     grid-template-columns: repeat(3, 1fr);
+
     gap: 28px;
 }
+
 
 /* ==========================================
    CARTE PRODUIT
 ========================================== */
 
 .product-card {
+
     position: relative;
+
     min-height: 480px;
+
     padding: 32px;
+
     overflow: hidden;
 
     background:
@@ -108,6 +160,7 @@
         inset 0 1px 0 rgba(255, 255, 255, 0.06);
 
     backdrop-filter: blur(15px);
+
     -webkit-backdrop-filter: blur(15px);
 
     transition:
@@ -116,12 +169,19 @@
         box-shadow 0.4s ease;
 }
 
-/* Bordure lumineuse */
+
+/* ==========================================
+   BORDURE LUMINEUSE
+========================================== */
 
 .product-card::before {
+
     content: "";
+
     position: absolute;
+
     inset: 0;
+
     padding: 1px;
 
     background:
@@ -132,27 +192,46 @@
             transparent 45%
         );
 
+    /* Propriété standard */
+
+    mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+
+    /* Compatibilité WebKit */
+
     -webkit-mask:
         linear-gradient(#fff 0 0) content-box,
         linear-gradient(#fff 0 0);
 
     -webkit-mask-composite: xor;
+
     mask-composite: exclude;
 
     opacity: 0;
+
     transition: opacity 0.5s ease;
 
     pointer-events: none;
 }
 
-/* Reflet animé */
+
+/* ==========================================
+   REFLET ANIMÉ
+========================================== */
 
 .product-card::after {
+
     content: "";
+
     position: absolute;
+
     top: -120%;
+
     left: -80%;
+
     width: 55%;
+
     height: 300%;
 
     background:
@@ -164,12 +243,15 @@
         );
 
     transform: rotate(25deg);
+
     transition: left 0.8s ease;
 
     pointer-events: none;
 }
 
+
 .product-card:hover {
+
     transform: translateY(-12px);
 
     border-color:
@@ -180,25 +262,35 @@
         0 0 35px rgba(255, 255, 255, 0.035);
 }
 
+
 .product-card:hover::before {
+
     opacity: 1;
 }
 
+
 .product-card:hover::after {
+
     left: 140%;
 }
+
 
 /* ==========================================
    IMAGE PRODUIT
 ========================================== */
 
 .product-image {
+
     position: relative;
+
     width: 100%;
+
     height: 245px;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     margin-bottom: 28px;
@@ -213,39 +305,58 @@
     overflow: hidden;
 }
 
+
 .product-image::before {
+
     content: "";
+
     position: absolute;
+
     width: 160px;
+
     height: 160px;
 
     background: rgba(255,255,255,0.045);
 
     border-radius: 50%;
+
     filter: blur(30px);
 
     animation:
-        productGlow 4s ease-in-out infinite alternate;
+        productGlow
+        4s
+        ease-in-out
+        infinite
+        alternate;
 }
+
 
 @keyframes productGlow {
 
     from {
+
         transform: scale(0.9);
+
         opacity: 0.45;
     }
 
     to {
+
         transform: scale(1.15);
+
         opacity: 0.8;
     }
 }
 
+
 .product-image img {
+
     position: relative;
+
     z-index: 2;
 
     max-width: 75%;
+
     max-height: 210px;
 
     object-fit: contain;
@@ -261,7 +372,9 @@
         filter 0.5s ease;
 }
 
+
 .product-card:hover .product-image img {
+
     transform:
         scale(1.08)
         translateY(-6px);
@@ -273,21 +386,27 @@
         );
 }
 
+
 /* ==========================================
    INFORMATIONS PRODUIT
 ========================================== */
 
 .product-info {
+
     position: relative;
+
     z-index: 3;
 }
 
+
 .product-category {
+
     display: block;
 
     margin-bottom: 9px;
 
     font-size: 9px;
+
     font-weight: 700;
 
     letter-spacing: 3px;
@@ -298,66 +417,94 @@
     text-transform: uppercase;
 }
 
+
 .product-info h2 {
+
     font-size: 25px;
+
     font-weight: 750;
+
     letter-spacing: -0.8px;
+
     margin-bottom: 10px;
 }
 
+
 .product-info p {
+
     min-height: 44px;
 
     color:
         rgba(255,255,255,0.48);
 
     font-size: 12px;
+
     line-height: 1.7;
 
     margin-bottom: 22px;
 }
+
 
 /* ==========================================
    BAS PRODUIT
 ========================================== */
 
 .product-bottom {
+
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
 
     gap: 15px;
 }
 
+
 .product-price {
+
     display: flex;
+
     flex-direction: column;
 }
 
+
 .product-price small {
+
     font-size: 9px;
+
     color: rgba(255,255,255,0.35);
+
     letter-spacing: 1px;
+
     text-transform: uppercase;
 }
 
+
 .product-price strong {
+
     font-size: 20px;
+
     margin-top: 3px;
 }
+
 
 /* ==========================================
    BOUTON PRODUIT
 ========================================== */
 
 .product-button {
+
     position: relative;
 
     height: 45px;
+
     padding: 0 20px;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     border: 1px solid rgba(255,255,255,0.16);
@@ -370,6 +517,7 @@
     text-decoration: none;
 
     font-size: 11px;
+
     font-weight: 800;
 
     letter-spacing: 0.5px;
@@ -382,15 +530,19 @@
         box-shadow 0.3s ease;
 }
 
+
 .product-button::before {
+
     content: "";
 
     position: absolute;
 
     top: 0;
+
     left: -100%;
 
     width: 60%;
+
     height: 100%;
 
     background:
@@ -406,12 +558,17 @@
     transition: left 0.6s ease;
 }
 
+
 .product-button span {
+
     position: relative;
+
     z-index: 2;
 }
 
+
 .product-button:hover {
+
     transform: translateY(-3px);
 
     background: white;
@@ -421,18 +578,23 @@
         rgba(255,255,255,0.12);
 }
 
+
 .product-button:hover::before {
+
     left: 140%;
 }
+
 
 /* ==========================================
    BADGE
 ========================================== */
 
 .product-badge {
+
     position: absolute;
 
     top: 20px;
+
     right: 20px;
 
     z-index: 5;
@@ -449,6 +611,7 @@
     backdrop-filter: blur(10px);
 
     font-size: 8px;
+
     font-weight: 700;
 
     letter-spacing: 2px;
@@ -459,12 +622,15 @@
     text-transform: uppercase;
 }
 
+
 /* ==========================================
    ANIMATION D'APPARITION
 ========================================== */
 
 .product-card {
+
     opacity: 0;
+
     transform: translateY(35px);
 
     animation:
@@ -474,37 +640,53 @@
         forwards;
 }
 
+
 .product-card:nth-child(1) {
+
     animation-delay: 0.1s;
 }
 
+
 .product-card:nth-child(2) {
+
     animation-delay: 0.2s;
 }
 
+
 .product-card:nth-child(3) {
+
     animation-delay: 0.3s;
 }
 
+
 .product-card:nth-child(4) {
+
     animation-delay: 0.4s;
 }
 
+
 .product-card:nth-child(5) {
+
     animation-delay: 0.5s;
 }
 
+
 .product-card:nth-child(6) {
+
     animation-delay: 0.6s;
 }
+
 
 @keyframes productAppear {
 
     to {
+
         opacity: 1;
+
         transform: translateY(0);
     }
 }
+
 
 /* ==========================================
    RESPONSIVE BOUTIQUE
@@ -513,43 +695,58 @@
 @media (max-width: 1000px) {
 
     .products-grid {
+
         grid-template-columns:
             repeat(2, 1fr);
     }
-
 }
+
 
 @media (max-width: 650px) {
 
     .shop-section {
+
         padding:
             110px 18px 70px;
     }
 
+
     .shop-header {
+
         margin-bottom: 45px;
     }
 
+
     .shop-header h1 {
+
         letter-spacing: -2px;
     }
 
+
     .products-grid {
+
         grid-template-columns: 1fr;
+
         gap: 20px;
     }
 
+
     .product-card {
+
         min-height: 450px;
+
         padding: 25px;
     }
 
+
     .product-image {
+
         height: 220px;
     }
 
+
     .product-info h2 {
+
         font-size: 23px;
     }
-
 }
