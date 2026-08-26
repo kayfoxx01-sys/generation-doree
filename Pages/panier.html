@@ -126,7 +126,7 @@
                 </h1>
 
                 <p>
-                    1 article dans le panier
+                    0 article dans le panier
                 </p>
 
             </div>
@@ -147,65 +147,30 @@
                 <div class="cart-items">
 
 
-                    <article class="cart-item">
+                    <!-- PANIER VIDE -->
 
+                    <div class="cart-empty">
 
-                        <!-- IMAGE -->
-
-                        <div class="cart-item-image">
-
-                            <span>
-                                250 DIAMANTS
-                            </span>
-
+                        <div class="cart-empty-icon">
+                            🛒
                         </div>
 
+                        <h2>
+                            Votre panier est vide
+                        </h2>
 
-                        <!-- INFORMATIONS -->
+                        <p>
+                            Vous n'avez encore ajouté aucun article à votre panier.
+                        </p>
 
-                        <div class="cart-item-info">
+                        <a
+                            href="boutique.html"
+                            class="button primary"
+                        >
+                            Découvrir la boutique
+                        </a>
 
-                            <h2>
-                                250 Diamants
-                            </h2>
-
-                            <p>
-                                Article disponible
-                            </p>
-
-                            <span class="cart-item-price">
-                                Prix à définir
-                            </span>
-
-                        </div>
-
-
-                        <!-- QUANTITÉ -->
-
-                        <div class="quantity">
-
-                            <button
-                                type="button"
-                                aria-label="Diminuer la quantité"
-                            >
-                                −
-                            </button>
-
-                            <span>
-                                1
-                            </span>
-
-                            <button
-                                type="button"
-                                aria-label="Augmenter la quantité"
-                            >
-                                +
-                            </button>
-
-                        </div>
-
-
-                    </article>
+                    </div>
 
 
                 </div>
@@ -231,7 +196,7 @@
                         </span>
 
                         <strong>
-                            À définir
+                            0,00 EUR
                         </strong>
 
                     </div>
@@ -260,7 +225,7 @@
                         </span>
 
                         <strong>
-                            À définir
+                            0,00 EUR
                         </strong>
 
                     </div>
@@ -397,6 +362,7 @@
                     <button
                         type="button"
                         class="checkout-button"
+                        disabled
                     >
                         Continuer vers le paiement
 
