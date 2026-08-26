@@ -1,5 +1,5 @@
 /* ==========================================
-   BOUTIQUE — CARTES PRODUITS PREMIUM
+   BOUTIQUE — CARTES PRODUITS ULTRA PREMIUM
 ========================================== */
 
 .shop-section {
@@ -8,22 +8,40 @@
 
     min-height: 100vh;
 
-    padding: 130px 5% 100px;
+    padding:
+        150px
+        5%
+        120px;
 
     background:
+
         radial-gradient(
-            circle at 50% 0%,
-            rgba(255, 255, 255, 0.06),
-            transparent 45%
+            circle at 50% -10%,
+            rgba(255,255,255,0.10),
+            transparent 38%
         ),
+
+        radial-gradient(
+            circle at 10% 45%,
+            rgba(255,255,255,0.025),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 90% 70%,
+            rgba(255,255,255,0.02),
+            transparent 30%
+        ),
+
         #080808;
 
     overflow: hidden;
+
 }
 
 
 /* ==========================================
-   LUMIÈRE D'AMBIANCE
+   TEXTURE LUMINEUSE
 ========================================== */
 
 .shop-section::before {
@@ -32,23 +50,65 @@
 
     position: absolute;
 
-    width: 700px;
-    height: 700px;
+    width: 900px;
 
-    top: -350px;
+    height: 900px;
+
+    top: -500px;
+
     left: 50%;
 
-    transform: translateX(-50%);
+    transform:
+        translateX(-50%);
 
-    background: rgba(255, 255, 255, 0.035);
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,0.07),
+            transparent 68%
+        );
 
-    filter: blur(120px);
-
-    border-radius: 50%;
+    filter:
+        blur(80px);
 
     pointer-events: none;
+
+    opacity: 0.8;
+
 }
 
+
+/* ==========================================
+   LIGNES DE DÉCORATION
+========================================== */
+
+.shop-section::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(255,255,255,0.025) 50%,
+            transparent 100%
+        );
+
+    opacity: 0.35;
+
+    pointer-events: none;
+
+}
+
+
+/* ==========================================
+   CONTAINER
+========================================== */
 
 .shop-container {
 
@@ -56,9 +116,13 @@
 
     z-index: 2;
 
-    max-width: 1400px;
+    width: 100%;
 
-    margin: auto;
+    max-width: 1500px;
+
+    margin:
+        0 auto;
+
 }
 
 
@@ -68,69 +132,149 @@
 
 .shop-header {
 
+    position: relative;
+
     text-align: center;
 
-    margin-bottom: 70px;
+    margin-bottom: 80px;
+
 }
 
 
 .shop-label {
 
-    display: inline-block;
+    display: inline-flex;
 
-    margin-bottom: 18px;
+    align-items: center;
 
-    font-size: 11px;
+    gap: 12px;
 
-    font-weight: 700;
+    margin-bottom: 22px;
+
+    font-size: 10px;
+
+    font-weight: 800;
 
     letter-spacing: 5px;
 
-    color: rgba(255, 255, 255, 0.45);
+    color:
+        rgba(255,255,255,0.45);
 
     text-transform: uppercase;
+
+}
+
+
+.shop-label::before,
+.shop-label::after {
+
+    content: "";
+
+    width: 35px;
+
+    height: 1px;
+
+    background:
+        rgba(255,255,255,0.25);
+
 }
 
 
 .shop-header h1 {
 
-    font-size: clamp(45px, 7vw, 85px);
+    position: relative;
 
-    line-height: 0.95;
+    font-size:
+        clamp(
+            50px,
+            8vw,
+            100px
+        );
 
-    letter-spacing: -4px;
+    line-height: 0.9;
 
-    font-weight: 800;
+    letter-spacing: -6px;
 
-    margin-bottom: 20px;
+    font-weight: 900;
+
+    margin-bottom: 25px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff 0%,
+            #ffffff 45%,
+            #777777 100%
+        );
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    color: transparent;
+
+}
+
+
+.shop-header h1::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: -20px;
+
+    width: 100px;
+
+    height: 2px;
+
+    transform:
+        translateX(-50%);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.5),
+            transparent
+        );
+
 }
 
 
 .shop-header p {
 
-    max-width: 620px;
+    max-width: 650px;
 
-    margin: auto;
+    margin:
+        35px auto
+        0;
 
-    color: rgba(255, 255, 255, 0.48);
+    color:
+        rgba(255,255,255,0.45);
 
     font-size: 14px;
 
-    line-height: 1.8;
+    line-height: 1.9;
+
 }
 
 
 /* ==========================================
-   GRILLE PRODUITS
+   GRILLE
 ========================================== */
 
 .products-grid {
 
     display: grid;
 
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
 
-    gap: 28px;
+    gap: 30px;
+
 }
 
 
@@ -142,41 +286,106 @@
 
     position: relative;
 
-    min-height: 480px;
+    min-height: 520px;
 
-    padding: 32px;
+    padding: 25px;
 
     overflow: hidden;
 
+    isolation: isolate;
+
     background:
+
         linear-gradient(
             145deg,
-            rgba(255, 255, 255, 0.085),
-            rgba(255, 255, 255, 0.018)
+            rgba(255,255,255,0.09),
+            rgba(255,255,255,0.025) 45%,
+            rgba(255,255,255,0.012)
         );
 
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    border:
+        1px solid
+        rgba(255,255,255,0.11);
 
     box-shadow:
-        0 25px 70px rgba(0, 0, 0, 0.35),
-        inset 0 1px 0 rgba(255, 255, 255, 0.06);
 
-    backdrop-filter: blur(15px);
+        0 25px 70px
+        rgba(0,0,0,0.45),
 
-    -webkit-backdrop-filter: blur(15px);
+        inset 0 1px 0
+        rgba(255,255,255,0.07),
+
+        inset 0 -1px 0
+        rgba(0,0,0,0.4);
+
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
 
     transition:
-        transform 0.5s cubic-bezier(.16,1,.3,1),
-        border-color 0.4s ease,
-        box-shadow 0.4s ease;
+
+        transform 0.55s
+        cubic-bezier(.16,1,.3,1),
+
+        border-color 0.45s ease,
+
+        box-shadow 0.45s ease;
+
 }
 
 
 /* ==========================================
-   BORDURE LUMINEUSE
+   HALO DERRIÈRE LA CARTE
 ========================================== */
 
 .product-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+
+    height: 300px;
+
+    top: 50%;
+
+    left: 50%;
+
+    transform:
+        translate(-50%,-50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,0.07),
+            transparent 68%
+        );
+
+    filter:
+        blur(30px);
+
+    opacity: 0.35;
+
+    transition:
+        opacity 0.5s ease,
+        transform 0.7s
+        cubic-bezier(.16,1,.3,1);
+
+    pointer-events: none;
+
+    z-index: -2;
+
+}
+
+
+/* ==========================================
+   BORDURE PREMIUM
+========================================== */
+
+.product-card::after {
 
     content: "";
 
@@ -187,87 +396,85 @@
     padding: 1px;
 
     background:
+
         linear-gradient(
             135deg,
-            transparent 20%,
             rgba(255,255,255,0.45),
-            transparent 45%
+            transparent 25%,
+            transparent 70%,
+            rgba(255,255,255,0.15)
         );
 
     mask:
-        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0)
+        content-box,
+
         linear-gradient(#fff 0 0);
 
     -webkit-mask:
-        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0)
+        content-box,
+
         linear-gradient(#fff 0 0);
 
-    -webkit-mask-composite: xor;
+    -webkit-mask-composite:
+        xor;
 
-    mask-composite: exclude;
+    mask-composite:
+        exclude;
 
     opacity: 0;
 
-    transition: opacity 0.5s ease;
+    transition:
+        opacity 0.5s ease;
 
     pointer-events: none;
+
 }
 
 
 /* ==========================================
-   REFLET ANIMÉ
+   HOVER CARTE
 ========================================== */
-
-.product-card::after {
-
-    content: "";
-
-    position: absolute;
-
-    top: -120%;
-    left: -80%;
-
-    width: 55%;
-    height: 300%;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,255,255,0.12),
-            transparent
-        );
-
-    transform: rotate(25deg);
-
-    transition: left 0.8s ease;
-
-    pointer-events: none;
-}
-
 
 .product-card:hover {
 
-    transform: translateY(-12px);
+    transform:
+        translateY(-14px)
+        scale(1.01);
 
     border-color:
-        rgba(255, 255, 255, 0.28);
+        rgba(255,255,255,0.28);
 
     box-shadow:
-        0 35px 90px rgba(0, 0, 0, 0.55),
-        0 0 35px rgba(255, 255, 255, 0.035);
+
+        0 40px 100px
+        rgba(0,0,0,0.65),
+
+        0 0 45px
+        rgba(255,255,255,0.035),
+
+        inset 0 1px 0
+        rgba(255,255,255,0.10);
+
 }
 
 
 .product-card:hover::before {
 
-    opacity: 1;
+    opacity: 0.8;
+
+    transform:
+        translate(-50%,-50%)
+        scale(1.25);
+
 }
 
 
 .product-card:hover::after {
 
-    left: 140%;
+    opacity: 1;
+
 }
 
 
@@ -281,7 +488,7 @@
 
     width: 100%;
 
-    height: 245px;
+    height: 270px;
 
     display: flex;
 
@@ -289,18 +496,24 @@
 
     justify-content: center;
 
-    margin-bottom: 28px;
+    margin-bottom: 30px;
+
+    overflow: hidden;
 
     background:
+
         radial-gradient(
-            circle,
+            circle at center,
             rgba(255,255,255,0.075),
             transparent 65%
         );
 
-    overflow: hidden;
 }
 
+
+/* ==========================================
+   CERCLE LUMINEUX PRODUIT
+========================================== */
 
 .product-image::before {
 
@@ -308,14 +521,21 @@
 
     position: absolute;
 
-    width: 160px;
-    height: 160px;
+    width: 190px;
 
-    background: rgba(255,255,255,0.045);
+    height: 190px;
 
     border-radius: 50%;
 
-    filter: blur(30px);
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,0.08),
+            transparent 70%
+        );
+
+    filter:
+        blur(20px);
 
     animation:
         productGlow
@@ -323,6 +543,7 @@
         ease-in-out
         infinite
         alternate;
+
 }
 
 
@@ -330,22 +551,30 @@
 
     from {
 
-        transform: scale(0.9);
+        transform:
+            scale(0.85);
 
-        opacity: 0.45;
+        opacity:
+            0.35;
 
     }
 
     to {
 
-        transform: scale(1.15);
+        transform:
+            scale(1.2);
 
-        opacity: 0.8;
+        opacity:
+            0.85;
 
     }
 
 }
 
+
+/* ==========================================
+   IMAGE
+========================================== */
 
 .product-image img {
 
@@ -353,40 +582,48 @@
 
     z-index: 2;
 
-    max-width: 75%;
+    width: auto;
 
-    max-height: 210px;
+    max-width: 78%;
+
+    max-height: 225px;
 
     object-fit: contain;
 
     filter:
         drop-shadow(
-            0 25px 30px
-            rgba(0,0,0,0.45)
+            0 25px 35px
+            rgba(0,0,0,0.55)
         );
 
     transition:
-        transform 0.5s cubic-bezier(.16,1,.3,1),
-        filter 0.5s ease;
+
+        transform 0.6s
+        cubic-bezier(.16,1,.3,1),
+
+        filter 0.6s ease;
+
 }
 
 
-.product-card:hover .product-image img {
+.product-card:hover
+.product-image img {
 
     transform:
-        scale(1.08)
-        translateY(-6px);
+        scale(1.1)
+        translateY(-8px);
 
     filter:
         drop-shadow(
-            0 30px 45px
-            rgba(0,0,0,0.65)
+            0 35px 55px
+            rgba(0,0,0,0.75)
         );
+
 }
 
 
 /* ==========================================
-   INFORMATIONS PRODUIT
+   INFORMATIONS
 ========================================== */
 
 .product-info {
@@ -394,6 +631,7 @@
     position: relative;
 
     z-index: 3;
+
 }
 
 
@@ -401,50 +639,53 @@
 
     display: block;
 
-    margin-bottom: 9px;
+    margin-bottom: 10px;
 
     font-size: 9px;
 
-    font-weight: 700;
+    font-weight: 800;
 
     letter-spacing: 3px;
 
     color:
-        rgba(255,255,255,0.38);
+        rgba(255,255,255,0.35);
 
     text-transform: uppercase;
+
 }
 
 
 .product-info h2 {
 
-    font-size: 25px;
+    font-size: 26px;
 
-    font-weight: 750;
+    font-weight: 800;
 
-    letter-spacing: -0.8px;
+    letter-spacing: -1px;
 
     margin-bottom: 10px;
+
 }
 
 
 .product-info p {
 
-    min-height: 44px;
+    min-height: 45px;
+
+    margin-bottom: 25px;
 
     color:
-        rgba(255,255,255,0.48);
+        rgba(255,255,255,0.45);
 
     font-size: 12px;
 
-    line-height: 1.7;
+    line-height: 1.75;
 
-    margin-bottom: 22px;
 }
 
 
 /* ==========================================
-   BAS PRODUIT
+   BAS
 ========================================== */
 
 .product-bottom {
@@ -455,7 +696,8 @@
 
     justify-content: space-between;
 
-    gap: 15px;
+    gap: 20px;
+
 }
 
 
@@ -464,40 +706,49 @@
     display: flex;
 
     flex-direction: column;
+
 }
 
 
 .product-price small {
 
-    font-size: 9px;
+    margin-bottom: 3px;
 
-    color: rgba(255,255,255,0.35);
+    font-size: 8px;
 
-    letter-spacing: 1px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    color:
+        rgba(255,255,255,0.30);
 
     text-transform: uppercase;
+
 }
 
 
 .product-price strong {
 
-    font-size: 20px;
+    font-size: 22px;
 
-    margin-top: 3px;
+    font-weight: 800;
+
 }
 
 
 /* ==========================================
-   BOUTON PRODUIT
+   BOUTON
 ========================================== */
 
 .product-button {
 
     position: relative;
 
-    height: 45px;
+    height: 46px;
 
-    padding: 0 20px;
+    padding:
+        0 22px;
 
     display: flex;
 
@@ -505,27 +756,35 @@
 
     justify-content: center;
 
-    border: 1px solid rgba(255,255,255,0.16);
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.15);
 
     background:
-        rgba(255,255,255,0.95);
+        rgba(255,255,255,0.94);
 
-    color: #080808;
+    color:
+        #080808;
 
     text-decoration: none;
 
-    font-size: 11px;
+    font-size: 10px;
 
-    font-weight: 800;
+    font-weight: 900;
 
-    letter-spacing: 0.5px;
-
-    overflow: hidden;
+    letter-spacing: 1px;
 
     transition:
-        transform 0.3s ease,
+
+        transform 0.3s
+        cubic-bezier(.16,1,.3,1),
+
         background 0.3s ease,
+
         box-shadow 0.3s ease;
+
 }
 
 
@@ -536,22 +795,28 @@
     position: absolute;
 
     top: 0;
-    left: -100%;
 
-    width: 60%;
+    left: -120%;
+
+    width: 70%;
+
     height: 100%;
 
     background:
+
         linear-gradient(
             90deg,
             transparent,
-            rgba(255,255,255,0.7),
+            rgba(255,255,255,0.8),
             transparent
         );
 
-    transform: skewX(-20deg);
+    transform:
+        skewX(-20deg);
 
-    transition: left 0.6s ease;
+    transition:
+        left 0.65s ease;
+
 }
 
 
@@ -560,24 +825,30 @@
     position: relative;
 
     z-index: 2;
+
 }
 
 
 .product-button:hover {
 
-    transform: translateY(-3px);
+    transform:
+        translateY(-4px);
 
-    background: white;
+    background:
+        #ffffff;
 
     box-shadow:
-        0 10px 30px
-        rgba(255,255,255,0.12);
+
+        0 12px 35px
+        rgba(255,255,255,0.13);
+
 }
 
 
 .product-button:hover::before {
 
-    left: 140%;
+    left: 150%;
+
 }
 
 
@@ -589,86 +860,85 @@
 
     position: absolute;
 
-    top: 20px;
-    right: 20px;
+    top: 18px;
+
+    right: 18px;
 
     z-index: 5;
 
-    padding: 7px 11px;
+    padding:
+        7px
+        11px;
 
     background:
-        rgba(255,255,255,0.08);
+        rgba(0,0,0,0.25);
 
     border:
         1px solid
-        rgba(255,255,255,0.14);
+        rgba(255,255,255,0.15);
 
-    backdrop-filter: blur(10px);
+    backdrop-filter:
+        blur(12px);
 
-    font-size: 8px;
-
-    font-weight: 700;
-
-    letter-spacing: 2px;
+    -webkit-backdrop-filter:
+        blur(12px);
 
     color:
         rgba(255,255,255,0.65);
 
+    font-size: 8px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
     text-transform: uppercase;
+
 }
 
 
 /* ==========================================
-   ANIMATION D'APPARITION
+   APPARITION
 ========================================== */
 
 .product-card {
 
     opacity: 0;
 
-    transform: translateY(35px);
+    transform:
+        translateY(45px);
 
     animation:
         productAppear
-        0.8s
+        0.9s
         cubic-bezier(.16,1,.3,1)
         forwards;
+
 }
 
 
 .product-card:nth-child(1) {
-
-    animation-delay: 0.1s;
+    animation-delay: 0.08s;
 }
-
 
 .product-card:nth-child(2) {
-
-    animation-delay: 0.2s;
+    animation-delay: 0.16s;
 }
-
 
 .product-card:nth-child(3) {
-
-    animation-delay: 0.3s;
+    animation-delay: 0.24s;
 }
-
 
 .product-card:nth-child(4) {
-
-    animation-delay: 0.4s;
+    animation-delay: 0.32s;
 }
-
 
 .product-card:nth-child(5) {
-
-    animation-delay: 0.5s;
+    animation-delay: 0.40s;
 }
 
-
 .product-card:nth-child(6) {
-
-    animation-delay: 0.6s;
+    animation-delay: 0.48s;
 }
 
 
@@ -678,7 +948,8 @@
 
         opacity: 1;
 
-        transform: translateY(0);
+        transform:
+            translateY(0);
 
     }
 
@@ -686,73 +957,143 @@
 
 
 /* ==========================================
-   RESPONSIVE BOUTIQUE
+   RESPONSIVE TABLETTE
 ========================================== */
 
-@media (max-width: 1000px) {
+@media (max-width: 1100px) {
 
     .products-grid {
 
         grid-template-columns:
-            repeat(2, 1fr);
+            repeat(2, minmax(0,1fr));
 
     }
 
 }
 
 
+/* ==========================================
+   RESPONSIVE MOBILE
+========================================== */
+
 @media (max-width: 650px) {
 
     .shop-section {
 
         padding:
-            110px 18px 70px;
+            110px
+            18px
+            80px;
 
     }
 
 
     .shop-header {
 
-        margin-bottom: 45px;
+        margin-bottom:
+            55px;
+
+    }
+
+
+    .shop-label {
+
+        letter-spacing:
+            3px;
+
+    }
+
+
+    .shop-label::before,
+    .shop-label::after {
+
+        width:
+            20px;
 
     }
 
 
     .shop-header h1 {
 
-        letter-spacing: -2px;
+        font-size:
+            clamp(
+                48px,
+                15vw,
+                75px
+            );
+
+        letter-spacing:
+            -3px;
+
+    }
+
+
+    .shop-header p {
+
+        font-size:
+            13px;
 
     }
 
 
     .products-grid {
 
-        grid-template-columns: 1fr;
+        grid-template-columns:
+            1fr;
 
-        gap: 20px;
+        gap:
+            22px;
 
     }
 
 
     .product-card {
 
-        min-height: 450px;
+        min-height:
+            470px;
 
-        padding: 25px;
+        padding:
+            22px;
 
     }
 
 
     .product-image {
 
-        height: 220px;
+        height:
+            225px;
+
+    }
+
+
+    .product-image img {
+
+        max-height:
+            195px;
 
     }
 
 
     .product-info h2 {
 
-        font-size: 23px;
+        font-size:
+            23px;
+
+    }
+
+
+    .product-bottom {
+
+        align-items:
+            flex-end;
+
+    }
+
+
+    .product-button {
+
+        padding:
+            0 17px;
 
     }
 
