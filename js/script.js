@@ -1,6 +1,3 @@
-# js/script.js
-
-```javascript
 /* ==========================================
    FORMULAIRE ASSISTANCE
 ========================================== */
@@ -38,4 +35,3 @@ if (assistanceForm && successNotification) {
     });
 
 }
-```
